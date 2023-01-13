@@ -1,2 +1,64 @@
-# ansi-escape-codes
-Utilização de códigos de escape ANSI para formatar à saída de um terminal de texto baseado nas normas ANSI e ANSI X3.64.
+[github]: https://github.com/eduardobaginskicosta
+[facebook]: https://facebook.com/eduardobaginskicosta/
+[twitter]: https://twitter.com/eduardobcosta7/
+[instagram]: https://instagram.com/eduardobcosta7/
+[medium]: https://eduardobcosta.medium.com/
+[youtube]: https://youtube.com/@eduardobcosta/
+[linkedin]: https://www.linkedin.com/in/eduardobaginskicosta/
+[ansi]: https://pt.wikipedia.org/wiki/American_National_Standards_Institute
+
+# ANSI Escape Codes
+
+Olá caros programadores, eu sou [Eduardo Baginski Costa](github) um autodidata e um programador brasileiro.   
+Através desse repositório irei apresentar exemplos de utilização do **ANSI Escape Codes (Códigos de escape [ANSI](ansi))** para formatar
+saídas e entradas de texto em terminais. Os códigos **[ANSI](ansi)** podem não ser suportados de maneira nativa por algumas linguagens de
+programação, como o **CSharp** sendo necessário a implementação de métodos da biblioteca **Kernel32**.
+
+<h3 align="center">—&emsp;⚠️&emsp;Avisos Importantes&emsp;⚠️&emsp;—</h3>
+
+Como mencionado anteriormente os códigos de escape **[ANSI](ansi)** podem não ser suportados nativamente por algumas linguagens de programação,
+tal como o **CSharp**. Por esses e outros motivos recomendo que uma busca rápida seja realizada de como habilitar o suporte a esses códigos na
+linguagem de programação utilizada.   
+   
+A linguagem **C++** (ou **Cpp**, **C-Plus-Plus**) apresenta suporte nativo aos códigos de escape **[ANSI](ansi)**, e não necessita de métodos
+e bibliotecas externas. Como um programador que ama o **CSharp** deixarei a seguir os **namespaces** e os métodos externos importados da **DLL** do
+**Kernel32** para habilitar o suporte a esses códigos.
+
+```csharp
+using System.
+using System.Runtime.InteropServices;
+
+namespace ANSIEscapeCodes
+{
+  #region Métodos Importados do User32
+  
+  [DllImport("kernel32.dll")]
+  private static extern bool GetConsoleMode(IntPtr hConsoleHandle, out uint lpMode);
+  
+  [DllImport("kernel32.dll")]
+  private static extern bool SetConsoleMode(IntPtr hConsoleHandle, uint dwMode);
+  
+  [DllImport("kernel32.dll", SetLastError = true)]
+  private static extern IntPtr GetStdHandle(int nStdHandle);
+  
+  #endregion
+  
+  public static void Main(string[] args)
+  {
+    #region Habilitar o ANSI Escape Codes
+    
+    var outputMode = (uint)0;
+    GetConsoleMode(GetStdHandle(-11), out outputMode);
+    outputMode |= 0x0004 | 0x0008;
+    SetConsoleMode(GetStdHandle(-11), outputMode);
+    
+    #endregion
+    
+    Console.ReadKey(true);
+  }
+}
+```
+
+Aqui importamos os métodos externos ```GetConsoleMode```, ```SetConsoleMode``` e o ```GetStdHandle``` da biblioteca **Kernel32** através
+do ```DllImport``` disponibilizado pelo **namespace** ```System.Runtime.InteropServices```. Utilizando esses métodos capturamos o controlador
+padrão do console e os modos aplicados ao mesmo, logo após adicionamos dois modos extras
