@@ -12,12 +12,12 @@
 Olá caros programadores, eu sou [Eduardo Baginski Costa](github) um autodidata e um programador brasileiro.   
 Através desse repositório irei apresentar exemplos de utilização do **ANSI Escape Codes (Códigos de escape [ANSI](ansi))** para formatar
 saídas e entradas de texto em terminais. Os códigos **[ANSI](ansi)** podem não ser suportados de maneira nativa por algumas linguagens de
-programação, como o **CSharp** sendo necessário a implementação de métodos da biblioteca **Kernel32**.
+programação, como o **CSharp**, sendo necessário a implementação de métodos externos da biblioteca **Kernel32**.
 
 <h3 align="center">—&emsp;⚠️&emsp;Avisos Importantes&emsp;⚠️&emsp;—</h3>
 
 Como mencionado anteriormente os códigos de escape **[ANSI](ansi)** podem não ser suportados nativamente por algumas linguagens de programação,
-tal como o **CSharp**. Por esses e outros motivos recomendo que uma busca rápida seja realizada de como habilitar o suporte a esses códigos na
+como o **CSharp**. Por esses e outros motivos recomendo que uma busca rápida seja realizada de como habilitar o suporte a esses códigos na
 linguagem de programação utilizada.   
    
 A linguagem **C++** (ou **Cpp**, **C-Plus-Plus**) apresenta suporte nativo aos códigos de escape **[ANSI](ansi)**, e não necessita de métodos
@@ -66,6 +66,6 @@ Através desses métodos utilizamos o ```GetStdHandle``` para exportar através 
 terminal para a variável ```outputMode```. Em seguida adicionamos dois modos extras o ```0x0004``` e o ```0x0008``` e os aplicamos novamente a
 janela atual do console através do método ```SetConsoleMode```.
 
-- ```0x0004```: quando oredenamos ao terminal para que exibida uma sequência de caracteres, antes deles serem exibidos ao usuário eles serão analisados para **VT100** e **sequências de caracteres de controle**, ou seja, que podem movimentar o mouse, alterar as colorações, as fontes além de outras operações executadas através da API do terminal.
+- ```0x0004```: quando ordenamos ao terminal para que exibida uma sequência de caracteres, antes deles serem exibidos ao usuário eles serão analisados para o **VT100** e para as **sequências de caracteres de controle**, ou seja, caracteres especiais que podem movimentar o mouse, alterar as colorações, as fontes, além de outras operações executadas através da API do terminal.
 
 - ```0x0008```: seu uso é destinado a utilização conjunta ao ```0x0004``` para melhorar a emulação do terminal, informando que quando um caractere é escrito no final da tela (canto inferior direito) a rolagem imediata deve ser desabilitada, sendo este o comportamento desejado.
