@@ -59,6 +59,13 @@ namespace ANSIEscapeCodes
 }
 ```
 
-Aqui importamos os métodos externos ```GetConsoleMode```, ```SetConsoleMode``` e o ```GetStdHandle``` da biblioteca **Kernel32** através
-do ```DllImport``` disponibilizado pelo **namespace** ```System.Runtime.InteropServices```. Utilizando esses métodos capturamos o controlador
-padrão do console e os modos aplicados ao mesmo, logo após adicionamos dois modos extras
+Basicamente importamos os métodos externos ```GetConsoleMode```, ```SetConsoleMode``` e ```GetStdHandle``` da biblioteca **Kernel32** através
+do ```DllImport``` disponibilizado pelo **namespace** ```System.Runtime.InteropServices```.   
+   
+Através desses métodos utilizamos o ```GetStdHandle``` para exportar através o método ```GetConsoleMode``` os modos atrelados a janela atual do
+terminal para a variável ```outputMode```. Em seguida adicionamos dois modos extras o ```0x0004``` e o ```0x0008``` e os aplicamos novamente a
+janela atual do console através do método ```SetConsoleMode```.
+
+- ```0x0004```: quando oredenamos ao terminal para que exibida uma sequência de caracteres, antes deles serem exibidos ao usuário eles serão analisados para **VT100** e **sequências de caracteres de controle**, ou seja, que podem movimentar o mouse, alterar as colorações, as fontes além de outras operações executadas através da API do terminal.
+
+- ```0x0008```: seu uso é destinado a utilização conjunta ao ```0x0004``` para melhorar a emulação do terminal, informando que quando um caractere é escrito no final da tela (canto inferior direito) a rolagem imediata deve ser desabilitada, sendo este o comportamento desejado.
