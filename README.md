@@ -113,3 +113,26 @@ As sequências utilizadas pelos códigos de escape **[ANSI](ansi)** são:
 
 Qualquer espaço em branco entre as sequências e argumentos devem ser ignorados na hora de sua uilização.   
 Estes espaços estão presentes para melhorar a legibilidade.
+
+<h3 align="center">Tabela dos códigos ASCII gerais</h3>
+
+A seguir, acompanhe a tabela dos códigos **ASCII** gerais utilizados no código de escape **[ANSI](ansi)**.   
+   
+**Importante:** algumas das sequências de escape de controle, como o ```\e``` para o ```ESC```, não tem garantia de funcionarem para todos os
+idiomas e compiladores, ou seja, recomendo a utilização do seu representante em **decimal**, **octal** ou **hexadecimal** como código de escape.
+   
+**Importante:** A representação da **Tecla Ctrl** é utilizado apénas para associar os caracteres não imprimíveis do código **ASCII 1** com os
+caracteres imprimiveis do código **ASCII 65** ("A"). No código **ASCII 1** seria ```^A``` (Ctrl + A), enquanto no código **ASCII 7 (Bel)** seria
+```^G``` (Ctrl + G).
+
+|**Nome**|**Decimal**|**Octal**|**Hexadecimal**|**Escape C**|**Tecla Ctrl**|**Descrição**|
+| ----- | ------- | ----- | ---- | -------- | -------- | ------------------------------- |
+| `BEL` | 7       | 007   | 0x07 | `\a`     | `^G`     | Sino do terminal.               |
+| `BS`  | 8       | 010   | 0x08 | `\b`     | `^H`     | Backspace.                      |
+| `HT`  | 9       | 011   | 0x09 | `\t`     | `^I`     | Tabulação horizontal.           |
+| `LF`  | 10      | 012   | 0x0A | `\n`     | `^J`     | Avançar linha (nova linha).     |
+| `VT`  | 11      | 013   | 0x0B | `\v`     | `^K`     | Tabulação Vertical.             |
+| `FF`  | 12      | 014   | 0x0C | `\f`     | `^L`     | Nova página.                    |
+| `CR`  | 13      | 015   | 0x0D | `\r`     | `^M`     | Retornar ao começo da linha.    |
+| `ESC` | 27      | 033   | 0x1B | `\e`[*](#escape) | `^[` | Caractere de escape (ESC).  |
+| `DEL` | 127     | 177   | 0x7F | `<none>` | `<none>` | Apagar o caractere.             |
