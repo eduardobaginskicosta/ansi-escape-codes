@@ -105,7 +105,7 @@ Console.ReadKey(true);
 
 <!-- SEQUÊNCIAS CÓDIGO ESCAPE ANSI  -->
 
-<br><h3 align="center">• • • Sequências do Código de Escape ANSI • • •</h3>
+<br><h3 align="center">•&ensp;Sequências do Código de Escape ANSI&ensp;•</h3>
 
 As sequências utilizadas pelos códigos de escape **[ANSI](ansi)** são:
 - `ESC` : sequência começando com `ESC` (`\x1B`).
@@ -118,7 +118,7 @@ Estes espaços estão presentes para melhorar a legibilidade.
 
 <!-- TABELA CÓDIGOS ASCII GERAIS -->
 
-<br><h3 align="center">• • • Tabela dos Códigos ASCII Gerais • • •</h3>
+<br><h3 align="center">•&ensp;Tabela dos Códigos ASCII Gerais&ensp;•</h3>
 
 Aacompanhe a seguir a tabela dos códigos **ASCII** gerais utilizados no código de escape **[ANSI](ansi)**.   
    
@@ -143,7 +143,7 @@ caracteres imprimiveis do código **ASCII 65** ("A"). No código **ASCII 1** ser
 
 <!-- CONTROLES CURSOR -->
 
-<br><h3 align="center">• • • Controles do Cursor • • •</h3>
+<br><h3 align="center">•&ensp;Controles do Cursor&ensp;•</h3>
 
 Acompanhe a seguir a tabela dos códigos de escape **[ANSI](ansi)** para controlar o cursor no terminal.   
    
@@ -168,3 +168,24 @@ possuem suporte para as sequências **SCO** e **DEC**, mas provavelmente possam 
 | `ESC 8`                                          | Restaurar a posição do cursor para a última posição salva ( **DEC** ). |
 | `ESC[s`                                          | Salvar a posição do cursor ( **SCO** ). |
 | `ESC[u`                                          | Restaurar a posição do cursor para a última posição salva ( **SCO** ). |
+
+<!-- FUNÇÕES DE APAGAMENTO -->
+
+<br><h3 align="center">•&ensp;Funções de Apagamento&ensp;•</h3>
+
+Acompanhe a seguir a tabela de códigos de escape **[ANSI](ansi)** para apgar caracteres no terminal.
+   
+**IMPORTANTE :** a eliminação de uma linha não movimenta o cursor, ou seja, ele irá permanecer na mesma posição em que estava antes do
+caractere ser apagado. Pode ser utilizado `\r` após apagar uma linha para que o cursor seja movimentado até o começo o início da linha atual.
+
+| **Sequência do Código ESC** | **Descrição** |
+| --- | --- |
+| `ESC[J`  | Apagar a tela de exibição (equivale ao `ESC[0J`). |
+| `ESC[0J` | Apaga à partir do cursor até o final da tela. |
+| `ESC[1J` | Apaga à partir do cursor até o inícia da tela. |
+| `ESC[2J` | Apagar a tela inteira (equivalente ao `cls`). |
+| `ESC[3J` | Apagar às linhas salvas. |
+| `ESC[K`  | Apagar na linha (equivalente ao `ESC[0K]`). |
+| `ESC[0K` | Apagar à partir do cursor até o final da linha. |
+| `ESC[1K` | Apagar do início da linha até o cursor. |
+| `ESC[2K` | Apagar a linha interia. |
