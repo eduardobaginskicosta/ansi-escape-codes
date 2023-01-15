@@ -63,31 +63,31 @@ namespace ANSIEscapeCodes
 }
 ```
 
-Basicamente importamos os métodos externos ```GetConsoleMode```, ```SetConsoleMode``` e ```GetStdHandle``` da biblioteca **Kernel32** através
-do ```DllImport``` disponibilizado pelo **namespace** ```System.Runtime.InteropServices```.   
+Basicamente importamos os métodos externos `GetConsoleMode`, `SetConsoleMode` e `GetStdHandle` da biblioteca **Kernel32** através
+do `DllImport` disponibilizado pelo **namespace** `System.Runtime.InteropServices`.   
    
-Através desses métodos utilizamos o ```GetStdHandle``` para exportar através o método ```GetConsoleMode``` os modos atrelados a janela atual do
-terminal para a variável ```outputMode```. Em seguida adicionamos dois modos extras o ```0x0004``` e o ```0x0008``` e os aplicamos novamente a
-janela atual do console através do método ```SetConsoleMode```.
+Através desses métodos utilizamos o `GetStdHandle` para exportar através o método `GetConsoleMode` os modos atrelados a janela atual do
+terminal para a variável `outputMode`. Em seguida adicionamos dois modos extras o `0x0004` e o `0x0008` e os aplicamos novamente a
+janela atual do console através do método `SetConsoleMode`.
 
-- ```0x0004```: quando ordenamos ao terminal para que exibida uma sequência de caracteres, antes deles serem exibidos ao usuário eles serão analisados para o **VT100** e para as **sequências de caracteres de controle**, ou seja, caracteres especiais que podem movimentar o mouse, alterar as colorações, as fontes, além de outras operações executadas através da API do terminal.
+- `0x0004`: quando ordenamos ao terminal para que exibida uma sequência de caracteres, antes deles serem exibidos ao usuário eles serão analisados para o **VT100** e para as **sequências de caracteres de controle**, ou seja, caracteres especiais que podem movimentar o mouse, alterar as colorações, as fontes, além de outras operações executadas através da API do terminal.
 
-- ```0x0008```: seu uso é destinado a utilização conjunta ao ```0x0004``` para melhorar a emulação do terminal, informando que quando um caractere é escrito no final da tela (canto inferior direito) a rolagem imediata deve ser desabilitada, sendo este o comportamento desejado.
+- `0x0008`: seu uso é destinado a utilização conjunta ao `0x0004` para melhorar a emulação do terminal, informando que quando um caractere é escrito no final da tela (canto inferior direito) a rolagem imediata deve ser desabilitada, sendo este o comportamento desejado.
 
 <!-- BÁSICO -->
 
 <h2 align="right">Utilização Básica</h2>
 
 Agora iremos aprender a utilizar os códigos de espace **[ANSI](ansi)** para formatar os textos do terminal como desejarmos.   
-Primeiramente, os códigos de escape **[ANSI](ansi)** padrão são prefixados com o chamado ```ESC``` ou ```Escape```, que são utilizados para
+Primeiramente, os códigos de escape **[ANSI](ansi)** padrão são prefixados com o chamado `ESC` ou `Escape`, que são utilizados para
 indicar ao terminal que o código deve ser interpretado e não exibido ao usuário.   
    
 No total, temos cinco prefixos para os códigos de escape **[ANSI](ansi)**, e eles são:
-- Control-Key: ```^[```.
-- Octal: ```\033```.
-- Unicode: ```\u001b```.
-- Hexadecimal: ```\x1B```.
-- Decimal: ```27```.
+- Control-Key: `^[`.
+- Octal: `\033`.
+- Unicode: `\u001b`.
+- Hexadecimal: `\x1B`.
+- Decimal: `27`.
 
 Estes são seguidos pelos comandos que devem ser executados pelo terminal, sendo algumas vezes delimitados pela abertura do colchete (```[```),
 conhecido como **Introdutor de Sequência do Controle (CSI), que opcionalmente pode ser seguido de argumentos ou pelo próprio comando.   
@@ -105,38 +105,66 @@ Console.ReadKey(true);
 
 <!-- SEQUÊNCIAS CÓDIGO ESCAPE ANSI  -->
 
-<h3 align="center">• • • Sequências do código de escape ANSI • • •</h3>
+<br><h3 align="center">• • • Sequências do Código de Escape ANSI • • •</h3>
 
 As sequências utilizadas pelos códigos de escape **[ANSI](ansi)** são:
-- ```ESC``` : sequência começando com ```ESC``` (```\x1B```).
-- ```CSI``` : **Introdutor de Sequência de Controle**: sequência começando com ```ESC [``` ou **CSI** (```\x9B```).
-- ```DCS``` : **Cadeia de Controle do Dispositivo**: sequêcia começando ```ESC P``` ou **DCS** (```\x90```).
-- ```OSC``` : **Comando do Sistema Operacional**: sequência começando com ```ESC ]``` ou **OSC** (```\x9D```).
+- `ESC` : sequência começando com `ESC` (`\x1B`).
+- `CSI` : **Introdutor de Sequência de Controle**: sequência começando com `ESC [` ou **CSI** (`\x9B`).
+- `DCS` : **Cadeia de Controle do Dispositivo**: sequêcia começando `ESC P` ou **DCS** (`\x90`).
+- `OSC` : **Comando do Sistema Operacional**: sequência começando com `ESC ]` ou **OSC** (`\x9D`).
 
 Qualquer espaço em branco entre as sequências e argumentos devem ser ignorados na hora de sua uilização.   
 Estes espaços estão presentes para melhorar a legibilidade.
 
 <!-- TABELA CÓDIGOS ASCII GERAIS -->
 
-<h3 align="center">• • • Tabela dos códigos ASCII gerais • • •</h3>
+<br><h3 align="center">• • • Tabela dos Códigos ASCII Gerais • • •</h3>
 
-A seguir, acompanhe a tabela dos códigos **ASCII** gerais utilizados no código de escape **[ANSI](ansi)**.   
+Aacompanhe a seguir a tabela dos códigos **ASCII** gerais utilizados no código de escape **[ANSI](ansi)**.   
    
-**Importante:** algumas das sequências de escape de controle, como o ```\e``` para o ```ESC```, não tem garantia de funcionarem para todos os
+**IMPORTANTE :** algumas das sequências de escape de controle, como o `\e` para o `ESC`, não tem garantia de funcionarem para todos os
 idiomas e compiladores, ou seja, recomendo a utilização do seu representante em **decimal**, **octal** ou **hexadecimal** como código de escape.
    
-**Importante:** A representação da **Tecla Ctrl** é utilizado apénas para associar os caracteres não imprimíveis do código **ASCII 1** com os
-caracteres imprimiveis do código **ASCII 65** ("A"). No código **ASCII 1** seria ```^A``` (Ctrl + A), enquanto no código **ASCII 7 (Bel)** seria
-```^G``` (Ctrl + G).
+**IMPORTANTE :** A representação da **Tecla Ctrl** é utilizado apénas para associar os caracteres não imprimíveis do código **ASCII 1** com os
+caracteres imprimiveis do código **ASCII 65** ("A"). No código **ASCII 1** seria `^A` (Ctrl + A), enquanto no código **ASCII 7 (Bel)** seria
+`^G` (Ctrl + G).
 
-|**Nome**|**Decimal**|**Octal**|**Hexadecimal**|**Escape C**|**Tecla Ctrl**|**Descrição**|
-| ----- | ------- | ----- | ---- | -------- | -------- | ------------------------------- |
-| `BEL` | 7       | 007   | 0x07 | `\a`     | `^G`     | Sino do terminal.               |
-| `BS`  | 8       | 010   | 0x08 | `\b`     | `^H`     | Backspace.                      |
-| `HT`  | 9       | 011   | 0x09 | `\t`     | `^I`     | Tabulação horizontal.           |
-| `LF`  | 10      | 012   | 0x0A | `\n`     | `^J`     | Avançar linha (nova linha).     |
-| `VT`  | 11      | 013   | 0x0B | `\v`     | `^K`     | Tabulação Vertical.             |
-| `FF`  | 12      | 014   | 0x0C | `\f`     | `^L`     | Nova página.                    |
-| `CR`  | 13      | 015   | 0x0D | `\r`     | `^M`     | Retornar ao começo da linha.    |
-| `ESC` | 27      | 033   | 0x1B | `\e`[*](#escape) | `^[` | Caractere de escape (ESC).  |
-| `DEL` | 127     | 177   | 0x7F | `<none>` | `<none>` | Apagar o caractere.             |
+| **Nome** | **Decimal** | **Octal** | **Hexadecimal** | **Escape C** | **Tecla Ctrl** | **Descrição** |
+| --- | --- | --- | --- | --- | --- | --- |
+| `BEL` | 7   | 007 | 0x07 | `\a` | `^G` | Sino do terminal. |
+| `BS`  | 8   | 010 | 0x08 | `\b` | `^H` | Backspace. |
+| `HT`  | 9   | 011 | 0x09 | `\t` | `^I` | Tabulação horizontal. |
+| `LF`  | 10  | 012 | 0x0A | `\n` | `^J` | Avançar linha (nova linha). |
+| `VT`  | 11  | 013 | 0x0B | `\v` | `^K` | Tabulação Vertical. |
+| `FF`  | 12  | 014 | 0x0C | `\f` | `^L` | Nova página. |
+| `CR`  | 13  | 015 | 0x0D | `\r` | `^M` | Retornar ao começo da linha. |
+| `ESC` | 27  | 033 | 0x1B | `\e` | `^[` | Caractere de escape (ESC). |
+| `DEL` | 127 | 177 | 0x7F |      |      | Apagar o caractere. |
+
+<!-- CONTROLES CURSOR -->
+
+<br><h3 align="center">• • • Controles do Cursor • • •</h3>
+
+Acompanhe a seguir a tabela dos códigos de escape **[ANSI](ansi)** para controlar o cursor no terminal.   
+   
+**IMPORTANTE :** algumas sequências são particulares de cada sistema operacional, podendo também variar entre as versões do mesmos podendo
+não ser padronizado, tal como as sequências para **salvar** e **restaurar** cursores. Alguns dos emuladores de terminais (**xterm** ou derivados)
+possuem suporte para as sequências **SCO** e **DEC**, mas provavelmente possam ter funcionalidades diferentes. Recomendo a utilização das sequências **DEC**.
+
+| **Sequência do Código ESC** | **Descrição** |
+| --- | --- |
+| `ESC[H`                                          | Movimentar o cursor para a posição inicial (0, 0). |
+| `ESC[{line};{column}H`<br>`ESC[{line};{column}f` | Movimentar o cursor para a linha **X** (`{line}`), e para a coluna **Y** (`{column}`). |
+| `ESC[{amount}A`                                  | Movimentar o cursor para cima **Y** (`{amount}`) linhas. |
+| `ESC[{amount}B`                                  | Movimentar o cursor para baixo **Y** (`{amount}`) linhas. |
+| `ESC[{amount}C`                                  | Movimentar o cursor para a direita **X** (`{amount}`) colunas. |
+| `ESC[{amount}D`                                  | Movimentar o cursor para a esquerda **X** (`{amount}`) colunas. |
+| `ESC[{amount}E`                                  | Movimentar o cursor para o início da linha, a **Y** (`{amount}`) linhas para baixo. |
+| `ESC[{amount}F`                                  | Movimentar o cursor para o início da linha anterior, em **Y** (`{amount}`) linha. |
+| `ESC[{amount}G`                                  | Movimentar o cursor para a coluna **X** (`{amount}`). |
+| `ESC[6n`                                         | Solicitar a posição do cursor (a resposta é devolvida como `ESC[{X},{Y}R`). |
+| `ESC M`                                          | Movimentar o cursor uma linha para cima (rolando se necessário). |
+| `ESC 7`                                          | Salvar a posição do cursor ( **DEC** ). |
+| `ESC 8`                                          | Restaurar a posição do cursor para a última posição salva ( **DEC** ). |
+| `ESC[s`                                          | Salvar a posição do cursor ( **SCO** ). |
+| `ESC[u`                                          | Restaurar a posição do cursor para a última posição salva ( **SCO** ). |
