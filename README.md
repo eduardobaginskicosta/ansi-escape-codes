@@ -7,14 +7,18 @@
 [linkedin]: https://www.linkedin.com/in/eduardobaginskicosta/
 [ansi]: https://pt.wikipedia.org/wiki/American_National_Standards_Institute
 
-# ANSI Escape Codes
+<!-- INTRODUÇÃO -->
+
+<h1 align="center">ANSI Escape Codes</h1>
 
 Olá caros programadores, eu sou [Eduardo Baginski Costa](github) um autodidata e um programador brasileiro.   
 Através desse repositório irei apresentar exemplos de utilização do **ANSI Escape Codes (Códigos de escape [ANSI](ansi))** para formatar
 saídas e entradas de texto em terminais. Os códigos **[ANSI](ansi)** podem não ser suportados de maneira nativa por algumas linguagens de
 programação, como o **CSharp**, sendo necessário a implementação de métodos externos da biblioteca **Kernel32**.
 
-<h3 align="center">—&emsp;⚠️&emsp;Avisos Importantes&emsp;⚠️&emsp;—</h3>
+<!-- AVISOS -->
+
+<h2 align="right">Avisos Importantes</h2>
 
 Como mencionado anteriormente os códigos de escape **[ANSI](ansi)** podem não ser suportados nativamente por algumas linguagens de programação,
 como o **CSharp**. Por esses e outros motivos recomendo que uma busca rápida seja realizada de como habilitar o suporte a esses códigos na
@@ -69,3 +73,43 @@ janela atual do console através do método ```SetConsoleMode```.
 - ```0x0004```: quando ordenamos ao terminal para que exibida uma sequência de caracteres, antes deles serem exibidos ao usuário eles serão analisados para o **VT100** e para as **sequências de caracteres de controle**, ou seja, caracteres especiais que podem movimentar o mouse, alterar as colorações, as fontes, além de outras operações executadas através da API do terminal.
 
 - ```0x0008```: seu uso é destinado a utilização conjunta ao ```0x0004``` para melhorar a emulação do terminal, informando que quando um caractere é escrito no final da tela (canto inferior direito) a rolagem imediata deve ser desabilitada, sendo este o comportamento desejado.
+
+<!-- BÁSICO -->
+
+<h2 align="right">Utilização Básica</h2>
+
+Agora iremos aprender a utilizar os códigos de espace **[ANSI](ansi)** para formatar os textos do terminal como desejarmos.   
+Primeiramente, os códigos de escape **[ANSI](ansi)** padrão são prefixados com o chamado ```ESC``` ou ```Escape```, que são utilizados para
+indicar ao terminal que o código deve ser interpretado e não exibido ao usuário.   
+   
+No total, temos cinco prefixos para os códigos de escape **[ANSI](ansi)**, e eles são:
+- Control-Key: ```^[```.
+- Octal: ```\033```.
+- Unicode: ```\u001b```.
+- Hexadecimal: ```\x1B```.
+- Decimal: ```27```.
+
+Estes são seguidos pelos comandos que devem ser executados pelo terminal, sendo algumas vezes delimitados pela abertura do colchete (```[```),
+conhecido como **Introdutor de Sequência do Controle (CSI), que opcionalmente pode ser seguido de argumentos ou pelo próprio comando.   
+   
+Os comandos são delimitados, ou seja, separados pelo ponto e vírgula (```;```), como mostra o exemplo a seguir:
+```sh
+\x1B[1;31m # Aqui foi definido que o parágrafo deve ser escrito em negrito e com o texto em vermelho
+```
+```csharp
+[...]
+Console.WriteLine("\x1B[1;32mIt's a bold and red paragraph!");
+Console.ReadKey(true);
+[...]
+```
+
+<h3 align="center">Sequências do código de escape ANSI</h3>
+
+As sequências utilizadas pelos códigos de escape **[ANSI](ansi)** são:
+- ```ESC``` : sequência começando com ```ESC``` (```\x1B```).
+- ```CSI``` : **Introdutor de Sequência de Controle**: sequência começando com ```ESC [``` ou **CSI** (```\x9B```).
+- ```DCS``` : **Cadeia de Controle do Dispositivo**: sequêcia começando ```ESC P``` ou **DCS** (```\x90```).
+- ```OSC``` : **Comando do Sistema Operacional**: sequência começando com ```ESC ]``` ou **OSC** (```\x9D```).
+
+Qualquer espaço em branco entre as sequências e argumentos devem ser ignorados na hora de sua uilização.   
+Estes espaços estão presentes para melhorar a legibilidade.
