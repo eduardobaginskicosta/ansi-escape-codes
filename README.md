@@ -189,3 +189,27 @@ caractere ser apagado. Pode ser utilizado `\r` após apagar uma linha para que o
 | `ESC[0K` | Apagar à partir do cursor até o final da linha. |
 | `ESC[1K` | Apagar do início da linha até o cursor. |
 | `ESC[2K` | Apagar a linha interia. |
+
+<!-- FORMATAÇÃO TEXTO -->
+
+<br><h3 align="center">•&ensp;Formatação de Texto (Modo Gráfico)&ensp;•</h3>
+
+Acompanhe a seguir a tabela de códigos de escape **[ANSI](ansi)** para a formatação de caracteres.
+   
+**IMPORTANTE :** algumas das sequências podem não ser suportadas em alguns terminais.   
+   
+**IMPORTANTE :** as formatações **dim** e **bold** são redefinidos com a sequência `ESC[22m`. A sequência `ESC[22m` é uma sequência
+não espeficicada para a formatação **sublinhado duplo** e só funciona em alguns terminais e é redefinida com a sequêcia `ESC[24m`.
+
+| **Sequência de Código ESC** | **Redefinir Sequência** | **Descrição** |
+| --- | --- | --- |
+| `ESC[1;34;{...}m` |           | Define os gráficos para célula (separados por `;`). |
+| `ESC[0m`          |           | Redefine todos os modos gráficos (estilos e cores). |
+| `ESC[1m`          | `ESC[22m` | Formata o texto para o modo negrito. |
+| `ESC[2m`          | `ESC[22m` | Formata o texto para o modo escurecido. |
+| `ESC[3m`          | `ESC[23m` | Formata o texto para o modo itálico. |
+| `ESC[4m`          | `ESC[24m` | Formata o texto para o modo sublinhado. |
+| `ESC[5m`          | `ESC[25m` | Formata o texto para o modo de cintilante (piscando). |
+| `ESC[7m`          | `ESC[27m` | Formata o texto para o modo inverso / reverso. |
+| `ESC[8m`          | `ESC[28m` | Formata o texto para o modo oculto / invisível. |
+| `ESC[9m`          | `ESC[29m` | Formata o texto para o modo tachado. |
