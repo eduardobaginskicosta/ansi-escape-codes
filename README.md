@@ -103,7 +103,9 @@ Console.ReadKey(true);
 [...]
 ```
 
-<h3 align="center">Sequências do código de escape ANSI</h3>
+<!-- SEQUÊNCIAS CÓDIGO ESCAPE ANSI  -->
+
+<h3 align="center">• • • Sequências do código de escape ANSI • • •</h3>
 
 As sequências utilizadas pelos códigos de escape **[ANSI](ansi)** são:
 - ```ESC``` : sequência começando com ```ESC``` (```\x1B```).
@@ -114,7 +116,9 @@ As sequências utilizadas pelos códigos de escape **[ANSI](ansi)** são:
 Qualquer espaço em branco entre as sequências e argumentos devem ser ignorados na hora de sua uilização.   
 Estes espaços estão presentes para melhorar a legibilidade.
 
-<h3 align="center">Tabela dos códigos ASCII gerais</h3>
+<!-- TABELA CÓDIGOS ASCII GERAIS -->
+
+<h3 align="center">• • • Tabela dos códigos ASCII gerais • • •</h3>
 
 A seguir, acompanhe a tabela dos códigos **ASCII** gerais utilizados no código de escape **[ANSI](ansi)**.   
    
