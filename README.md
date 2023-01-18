@@ -1,4 +1,4 @@
-> Olá caros programadores 😁, ainda estou escrevendo este documento, por favor aguardem mais alguns dias para que eu possa finalizar.<br><br>Atenciosamente, **Eduardo Baginski Costa**.
+> <h3>Repositório em Progresso</h3>Este repositório está sendo escrito e pode apresentar mudanças futuramente. Por favor, aguarde esta citação ser retirada na versão definitiva.<br>Atenciosamente, <b>Eduardo Baginski Costa</b>.
 
 [github]: https://github.com/eduardobaginskicosta
 [facebook]: https://facebook.com/eduardobaginskicosta/
