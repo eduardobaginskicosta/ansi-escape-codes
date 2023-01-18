@@ -1,3 +1,5 @@
+> Olá caros programadores 😁, ainda estou escrevendo este documento, por favor aguardem mais alguns dias para que eu possa finalizar.<br><br>Atenciosamente, **Eduardo Baginski Costa**.
+
 [github]: https://github.com/eduardobaginskicosta
 [facebook]: https://facebook.com/eduardobaginskicosta/
 [twitter]: https://twitter.com/eduardobcosta7/
