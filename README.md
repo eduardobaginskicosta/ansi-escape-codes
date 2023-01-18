@@ -64,6 +64,7 @@ De uma maneira resumida, este código importa métodos externos do **Kernel32** 
 -   `0x0008` : este modo é destinado à utilização conjunta ao modo `0x0004` para melhorar a emulação do terminal, informando que quando um caractere for exibido no final da tela (canto inferior direito) a rolagem imediata deve ser desabilitada, sendo este um comportamento desejado.
 
 <h2 align="right">Utilização Básica</h2>
+
 A partir daqui iremos aprender a utilizar os códigos de escape **[ANSI](ansi)** para realizar a formatação de textos no terminal da maneira que for desejada.
 
 Primeiramente, os códigos de escape **[ANSI](ansi)** padrão são prefixados com o chamado `ESC` ou `Escape`, que são utilizados para indicar ao terminal que a sequência seguinte de caracteres devem ser analisadas e interpretadas, não as exibindo ao usuário.
