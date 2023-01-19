@@ -13,7 +13,7 @@
 
 <h1 align="center">ANSI Escape Code</h1>
 
-Olá caros programadores, eu sou [Eduardo Baginski Costa](github) um autodidata e programador brasileiro.
+Olá caros programadores, eu sou [Eduardo Baginski Costa](github) um autodidata e programador brasileiro. <img align="right" src="https://img.shields.io/badge/Baixar_PDF-F40F02?style=for-the-badge&logo=Adobe&logoColor=white" title="Baixar arquivo PDF.">
 
 Através desse repositório irei apresentar utilizações básicas dos **códigos de escape [ANSI](ansi) (ANSI Escape Codes)** para formatar saídas e entradas de texto em terminais baseados nas normas **ANSI** e **ANSI X3.64**.
 
