@@ -143,7 +143,7 @@ Acompanhe na sequência a tabela dos códigos de escape **[ANSI](ansi)** para co
 | **Sequência do Código ESC**                              | **Descrição**                                                |
 | -------------------------------------------------------- | ------------------------------------------------------------ |
 | **`ESC[H`**                                              | Movimentar o cursor do terminal para a posição inicial (0, 0). |
-| **`ESC[{line};{column}H`**<br>**`ESC[{line};{column}`**f | Movimentar o cursor do terminal para a linha **X** (`{line}`) e para a coluna **Y** (`{column}`). |
+| **`ESC[{line};{column}H`**<br/>**`ESC[{line};{column}f`**| Movimentar o cursor do terminal para a linha **X** (`{line}`) e para a coluna **Y** (`{column}`). |
 | **`ESC[{amount}A`**                                      | Movimentar o cursor do terminal para cima **Y** (`{amount}`) linhas. |
 | **`ESC[{amount}B`**                                      | Movimentar o cursor do terminal para baixo **Y** (`{amount}`) linhas. |
 | **`ESC[{amount}C`**                                      | Movimentar o cursor do terminal para a direita **X** (`{amount}`) colunas. |
