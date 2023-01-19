@@ -363,5 +363,3 @@ Deixo aqui os agradecimentos especiais ao [Christian Petersen](https://github.co
 -   [Sequências de controle XTerm](https://invisible-island.net/xterm/ctlseqs/ctlseqs.html).
 -   [VT100 – Vários manuais de terminal](https://vt100.net/).
 -   [xterm.js – Sequências de terminais suportados](https://xtermjs.org/docs/api/vtfeatures/).
-
-Documento escrito e revisado por [Eduardo Baginski Costa](github) baseado na publicação [ANSI Escape Codes](https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797) de [Christian Petersen](https://github.com/fnky).
