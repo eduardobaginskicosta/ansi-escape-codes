@@ -35,7 +35,7 @@ Como mencionado previamente, os códigos de escape **[ANSI](ansi)** não são su
 Algumas linguagens de programação, como o **C++**, apresentam suportes nativos aos códigos de escape **[ANSI](ansi)** não necessitando de bibliotecas e métodos externos. Como um programador amante do **CSharp** deixarei a seguir como habilitar esse suporte utilizando uma API do Windows, o **Kernel32**.
 
 ``````csharp
-using System.
+using System;
 using System.Runtime.InteropServices;
 
 namespace ANSIEscapeCodes
