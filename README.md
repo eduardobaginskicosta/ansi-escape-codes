@@ -40,7 +40,7 @@ using System.Runtime.InteropServices;
 
 namespace ANSIEscapeCodes
 {
-  #region Métodos Importados do User32
+  #region Métodos Importados do Kernel32
   
   [DllImport("kernel32.dll")]
   private static extern bool GetConsoleMode(IntPtr hConsoleHandle, out uint lpMode);
