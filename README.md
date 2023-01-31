@@ -11,7 +11,7 @@
 [xterm]: https://invisible-island.net/xterm/ctlseqs/ctlseqs.html
 [keyboardStrings]: https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797#list-of-keyboard-strings
 
-<h1 align="center">ANSI Escape Code</h1>
+<h1 align="center">Códigos de Escape ANSI</h1>
 
 <p float="left">
 	<a href="./ANSI Escape Codes.pdf" download>
